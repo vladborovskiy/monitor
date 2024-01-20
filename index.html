@@ -4,7 +4,10 @@
     <title>Checking Text Content</title>
     <script>
         window.onload = function() {
-            fetch('https://49eb8868-b0b4-4c13-abc3-374921be2f27-00-49bqwy4azxkw.worf.replit.dev/')
+            fetch('https://49eb8868-b0b4-4c13-abc3-374921be2f27-00-49bqwy4azxkw.worf.replit.dev/', {
+                method: 'GET',
+                mode: 'cors'
+            })
             .then(response => response.text())
             .then(data => {
                 if (data.includes('Бот работает!')) {
