@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 const app = express();
 
 app.get('/', (req, res) => {
-    fetch('https://google.com/')
+    fetch('https://net-monitor.vercel.app/') // Замените на адрес вашего сайт-монитора
         .then(response => response.text())
         .then(data => {
             if (data.includes('Бот работает!')) {
