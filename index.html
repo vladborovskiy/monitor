@@ -3,15 +3,41 @@
 <head>
     <title>Проверка работоспособности</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="styles.css"> <!-- Подключаем файл со стилями -->
-
-</head>
-<body>
-    <h1>Проверка работоспособности страницы</h1>
-    <button onclick="checkPageStatus()">Проверить страницу</button>
-    <p id="result" class="result"></p>
-    <button id="toggleButton">Переключить тему</button> <!-- Добавим id для кнопки переключения темы -->
-
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+            background-color: #f1f1f1;
+            transition: background-color 0.3s;
+        }
+        h1 {
+            color: #333;
+            transition: color 0.3s;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 24px;
+            }
+            button {
+                padding: 8px 16px;
+            }
+        }
+    </style>
     <script>
         function checkPageStatus() {
             var request = new XMLHttpRequest();
@@ -30,11 +56,24 @@
             };
             request.send();
         }
+    </script>
+</head>
+<body>
+    <h1>Проверка работоспособности страницы</h1>
+    <button onclick="checkPageStatus()">Проверить страницу</button>
+    <p id="result" class="result"></p>
 
-        // Добавим функцию переключения темы
-        document.getElementById('toggleButton').addEventListener('click', function(){
-            document.body.classList.toggle('dark-theme');
+    <script>
+        const toggleButton = document.querySelector('.toggle-button');
+        const body = document.querySelector('body');
+        toggleButton.addEventListener('click', () => {
+            if (body.classList.contains('dark-theme')) {
+                body.classList.remove('dark-theme');
+            } else {
+                body.classList.add('dark-theme');
+            }
         });
     </script>
+    <button class="toggle-button">Переключить тему</button>
 </body>
 </html>
