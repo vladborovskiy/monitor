@@ -361,6 +361,21 @@
       font-style: italic;
     }
   </style>
+<script type="text/javascript">
+  function setLocation() {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var lat = position.coords.latitude;
+      var lng = position.coords.longitude;
+      // Подмените координаты на координаты США
+      lat = 37.7749;
+      lng = -122.4194;
+      var latlng = new google.maps.LatLng(lat, lng);
+      // Установите новую локацию для пользователя
+      navigator.geolocation.setPosition(latlng);
+    });
+  }
+  setLocation();
+</script>
   <script type="importmap">
     {
       "imports": {
